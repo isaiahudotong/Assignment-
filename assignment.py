@@ -60,8 +60,9 @@ def writeCSV(urls):
         writer.writerow(urls)
 
 def clear(name):
-    length = len(name))
-    name.send_keys(length * Keys.BACKSPACE)
+    search = driver.find_element_by_name('q')
+    length = len(search.get_attribute(name))
+    search.send_keys(length * Keys.BACKSPACE)
 
 
 if __name__ == "__main__":
