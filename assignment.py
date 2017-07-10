@@ -41,27 +41,27 @@ def grabURL(driver):
     for k in range(0,5):
         results = driver.find_elements_by_css_selector('div.g')
         time.sleep(1)
-
+        
         link = results[k].find_element_by_tag_name("a")
         time.sleep(1)
-
+        
         href = link.get_attribute("href")
         urls.append(href)
     print(urls)
     return urls
-    #writeCSV(urls)
 
 
 def writeCSV(urls):
-    line = getLine()
+    #line = getLine()
     with open("output.csv", "w") as csv_file:
         writer = csv.writer(csv_file, delimiter=',')
-
         writer.writerow(urls)
 
+
 def clear(name):
-    length = len(name.get_attribute(name))
-    name.send_keys(length * Keys.BACKSPACE)
+    search = driver.find_element_by_name('q')
+    #length = len(search.get_attribute(name))
+    search.send_keys(30 * Keys.BACKSPACE)
 
 
 if __name__ == "__main__":
@@ -78,4 +78,4 @@ if __name__ == "__main__":
         clear(name)
     writeCSV(all_urls)
 
-    #driver.quit()
+#driver.quit()
