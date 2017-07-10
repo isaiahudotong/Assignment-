@@ -60,8 +60,8 @@ def writeCSV(urls):
         writer.writerow(urls)
 
 def clear(name):
-    length = len(element.get_attribute(name))
-    element.send_keys(length * Keys.BACKSPACE)
+    length = len(name.get_attribute(name))
+    name.send_keys(length * Keys.BACKSPACE)
 
 
 if __name__ == "__main__":
