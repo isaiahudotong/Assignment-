@@ -64,6 +64,7 @@ def clear(name):
     search.send_keys(30 * Keys.BACKSPACE)
 
 
+
 if __name__ == "__main__":
     all_urls = []
     companyName = getName()
@@ -78,4 +79,5 @@ if __name__ == "__main__":
         clear(name)
     writeCSV(all_urls)
 
-#driver.quit()
+
+    #driver.quit()
