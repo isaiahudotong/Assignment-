@@ -38,12 +38,12 @@ def googleCompany(driver, name):
 
 def grabURL(driver):
     urls = []
-    for k in range(0,2):
+    for k in range(0,5):
         results = driver.find_elements_by_css_selector('div.g')
-        time.sleep(5)
+        time.sleep(1)
 
         link = results[k].find_element_by_tag_name("a")
-        time.sleep(5)
+        time.sleep(1)
 
         href = link.get_attribute("href")
         urls.append(href)
@@ -60,8 +60,8 @@ def writeCSV(urls):
         writer.writerow(urls)
 
 def clear(name):
-    length = len(element.get_attribute(name))
-    element.send_keys(length * Keys.BACKSPACE)
+    length = len(name.get_attribute(name))
+    name.send_keys(length * Keys.BACKSPACE)
 
 
 if __name__ == "__main__":
@@ -69,10 +69,10 @@ if __name__ == "__main__":
     companyName = getName()
     driver = driver()
     for name in companyName:
-        time.sleep(1)
+        time.sleep(2)
         googleCompany(driver, name)
         urls = grabURL(driver)
-        time.sleep(1)
+        time.sleep(2)
         all_urls.append(urls)
         print("***************"+ str(all_urls))
         clear(name)
